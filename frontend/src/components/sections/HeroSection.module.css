@@ -1,0 +1,259 @@
+.hero {
+  position: relative;
+  overflow: hidden;
+  background: var(--bg);
+  padding: 120px 0 54px;
+  isolation: isolate;
+}
+.gridBg,
+.gradientOverlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+.gridBg {
+  background-image:
+    linear-gradient(var(--border-subtle) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border-subtle) 1px, transparent 1px);
+  background-size: 82px 82px;
+  opacity: 0.16;
+}
+.gradientOverlay {
+  background: radial-gradient(ellipse at 75% 45%, #8e1da91c, transparent 65%);
+}
+.inner {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+.textCol {
+  min-width: 0;
+}
+.heading {
+  font-size: clamp(34px, 3.6vw, 54px);
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+  font-weight: 700;
+  margin: 0;
+  max-width: 620px;
+}
+.subheading {
+  font-size: clamp(15px, 1.15vw, 17.5px);
+  line-height: 1.6;
+  max-width: 520px;
+  margin: 20px 0 0;
+  color: var(--text-muted);
+}
+.ctaRow {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 26px;
+}
+.ctaPrimary {
+  border: 0;
+  border-radius: 999px;
+  background: #e7ed24;
+  color: #30103b;
+  min-height: 48px;
+  padding: 12px 28px;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.18s, filter 0.18s, box-shadow 0.18s;
+  box-shadow: 0 4px 16px rgba(231, 237, 36, 0.28);
+}
+.ctaPrimary:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+  box-shadow: 0 6px 20px rgba(231, 237, 36, 0.4);
+}
+.ctaSecondary {
+  color: var(--text-primary);
+  font-size: 14.5px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.15s, transform 0.15s;
+}
+.ctaSecondary:hover {
+  color: var(--accent-yellow);
+  transform: translateX(2px);
+}
+.portraitCol {
+  position: relative;
+  justify-self: center;
+  width: min(100%, 350px);
+  margin: 12px 0 30px;
+}
+.portraitArt {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+}
+.yellowCircle {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #eff16b, #fafbd4);
+}
+.portraitWrap {
+  position: absolute;
+  inset: -10% 5% 0;
+  overflow: hidden;
+  border-radius: 0 0 46% 46%;
+}
+.portraitImage,
+.portraitPlaceholder {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: bottom;
+}
+.portraitPlaceholder svg {
+  height: 100%;
+  width: 100%;
+  display: block;
+}
+.photoFrame {
+  inset: 6px;
+  border-radius: 50%;
+  clip-path: circle(50%);
+  background: var(--surface);
+}
+.photoFrame .portraitImage {
+  display: block;
+  object-fit: cover;
+  object-position: 50% 22%;
+  transform: scale(1.06);
+  transform-origin: 50% 22%;
+}
+.hasPhoto .yellowCircle {
+  background: linear-gradient(135deg, #f0f47b 0%, #e7ed24 55%, #b5b61b 100%);
+  box-shadow:
+    0 0 0 1px #e7ed2428,
+    0 24px 64px #0d02164d;
+}
+.hasPhoto .teacherCard {
+  right: 6px;
+  bottom: -18px;
+  border-radius: 24px;
+  box-shadow: 0 16px 36px #0d021633;
+}
+.teacherCard {
+  position: absolute;
+  bottom: -20px;
+  right: -8px;
+  width: min(90%, 270px);
+  border: 1px solid var(--border-subtle);
+  border-radius: 18px;
+  padding: 16px 20px;
+  background: var(--surface);
+  box-shadow: 0 12px 32px #160b2320;
+}
+.teacherName {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0 0 4px;
+  color: var(--text-primary);
+}
+.teacherRole,
+.teacherTags {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.45;
+  margin: 2px 0;
+}
+.desktopBreak {
+  display: block;
+}
+@media (min-width: 1700px) {
+  .hero {
+    padding-top: 136px;
+    padding-bottom: 64px;
+  }
+  .portraitCol {
+    width: 380px;
+  }
+  .heading {
+    font-size: 58px;
+  }
+}
+@media (max-width: 900px) {
+  .hero {
+    padding-top: 126px;
+    padding-bottom: 56px;
+  }
+  .inner {
+    grid-template-columns: 1fr;
+    gap: 42px;
+  }
+  .heading {
+    max-width: 620px;
+    font-size: clamp(38px, 6.5vw, 56px);
+  }
+  .portraitCol {
+    width: min(100%, 300px);
+    margin: 8px 0 0;
+  }
+  .subheading {
+    max-width: 580px;
+  }
+  .teacherCard,
+  .hasPhoto .teacherCard {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    width: 100%;
+    margin-top: 16px;
+    padding: 16px;
+    text-align: center;
+  }
+  .teacherName {
+    font-size: 22px;
+  }
+  .desktopBreak {
+    display: none;
+  }
+}
+@media (max-width: 480px) {
+  .hero {
+    padding-top: 104px;
+    padding-bottom: 32px;
+  }
+  .inner {
+    gap: 24px;
+  }
+  .heading {
+    font-size: clamp(34px, 10vw, 43px);
+  }
+  .portraitCol {
+    width: clamp(216px, 64vw, 260px);
+    max-width: 100%;
+  }
+  .teacherName {
+    font-size: 20px;
+  }
+  .ctaRow {
+    gap: 12px;
+    margin-top: 24px;
+  }
+  .ctaPrimary {
+    min-height: 52px;
+    padding: 14px 22px;
+    font-size: 14px;
+  }
+  .ctaSecondary {
+    font-size: 14px;
+  }
+  .subheading {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-top: 20px;
+  }
+}

@@ -1,0 +1,191 @@
+.surface {
+  padding: 24px;
+  border-radius: 24px;
+  background: #fff;
+  color: #351141;
+  text-align: left;
+  --text-primary: #351141;
+  --text-heading: #351141;
+  --text-muted: #75627f;
+  --bg: #fff;
+  --surface: #fff;
+  --surface-elevated: #f0eaf3;
+  --border: #ddd;
+  --danger: #b82c47;
+  --accent-yellow-text: #30103b;
+}
+:global(.dialog-content).modal {
+  width: min(560px, calc(100vw - 32px));
+  max-width: none;
+  max-height: calc(100dvh - 40px);
+  padding: 24px;
+  display: block;
+  border-radius: 24px;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
+}
+.inline {
+  width: min(560px, 100%);
+  margin-inline: auto;
+  box-shadow: 0 12px 44px #0d02161c;
+  border: 1px solid #e8dfed;
+}
+.modal :global(.dialog-close) {
+  position: sticky;
+  top: 0;
+  right: auto;
+  margin: 0 0 0 auto;
+  width: 44px;
+  height: 44px;
+  font-size: 26px;
+  box-shadow: 0 0 0 5px #fff;
+}
+.form {
+  min-width: 0;
+}
+.modal .form {
+  margin-top: -44px;
+}
+.brandRow {
+  height: 44px;
+  display: flex;
+  align-items: center;
+  padding-right: 52px;
+}
+.brandRow > a {
+  min-height: 44px;
+}
+.form h2 {
+  color: var(--text-primary);
+  font-size: clamp(24px, 1.9vw, 28px);
+  line-height: 1.16;
+  letter-spacing: -0.025em;
+  margin: 16px 0 10px;
+}
+.intro {
+  font-size: 15px;
+  line-height: 1.55;
+  color: #75627f;
+  margin: 0 0 18px;
+}
+.form form {
+  gap: 14px;
+}
+.contactFields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+.form label {
+  gap: 6px;
+  font-size: 13px;
+  line-height: 1.4;
+  min-width: 0;
+}
+.surface input,
+.surface select {
+  min-height: 44px;
+  height: 44px;
+  padding: 10px 14px;
+  font-size: 15px;
+  border-radius: 12px;
+}
+.surface textarea {
+  min-height: 64px;
+  padding: 10px 14px;
+  border-radius: 14px;
+  font-size: 15px;
+  line-height: 1.5;
+}
+.surface :global(.check-label) {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  min-height: 44px;
+  font-size: 12px;
+  line-height: 1.5;
+}
+.surface :global(.check-label input) {
+  width: 20px;
+  height: 20px;
+  min-height: 20px;
+  flex: 0 0 20px;
+  padding: 0;
+  margin-top: 2px;
+  accent-color: #58176d;
+}
+.surface :global(.field-error) {
+  font-size: 12px;
+  line-height: 1.4;
+}
+.surface :global(.error-box) {
+  margin: 0;
+  padding: 12px;
+  font-size: 14px;
+}
+.surface .submit {
+  height: 48px;
+  min-height: 48px;
+  width: 100%;
+  padding: 12px 20px;
+  font-size: 15px;
+}
+.success {
+  padding: 24px 0 8px;
+}
+.success h2 {
+  margin-top: 18px;
+}
+.success p {
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 12px 0 24px;
+}
+.success :global(.button) {
+  min-height: 44px;
+  padding: 10px 22px;
+  font-size: 15px;
+}
+.successMark {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #e7ed24;
+  color: #351141;
+  font-size: 27px;
+}
+@media (max-width: 600px) {
+  .surface input,
+  .surface select,
+  .surface textarea {
+    font-size: 16px;
+  }
+}
+@media (max-width: 480px) {
+  .inline {
+    padding: 20px;
+    border-radius: 22px;
+  }
+  :global(.dialog-content).modal {
+    width: calc(100vw - 24px);
+    max-height: calc(
+      100dvh - max(12px, env(safe-area-inset-top)) -
+        max(12px, env(safe-area-inset-bottom))
+    );
+    padding: 20px;
+    border-radius: 22px;
+  }
+  .contactFields {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .form h2 {
+    font-size: 24px;
+  }
+  .intro {
+    font-size: 14px;
+    margin-bottom: 16px;
+  }
+}

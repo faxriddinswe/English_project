@@ -1,0 +1,53 @@
+.lookup {
+  min-width: 0;
+}
+.lookup > input {
+  width: 100%;
+  min-height: 42px;
+}
+.suggestions {
+  margin-top: 6px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface-elevated);
+  overflow: hidden;
+}
+.suggestions [role="listbox"] {
+  max-height: min(240px, 40dvh);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+.suggestions [role="option"] {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 3px;
+  width: 100%;
+  min-height: 44px;
+  padding: 9px 12px;
+  text-align: left;
+  background: transparent;
+  color: var(--text-primary);
+  overflow-wrap: anywhere;
+  border-radius: 0;
+}
+.suggestions [role="option"] + [role="option"] {
+  border-top: 1px solid var(--border);
+}
+.suggestions [role="option"]:hover,
+.suggestions [aria-selected="true"] {
+  background: var(--surface-hover);
+}
+.suggestions small {
+  color: var(--text-muted);
+  font-size: 13px;
+}
+.suggestions p {
+  padding: 10px 14px;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+.suggestions > [role="alert"] button {
+  margin: 0 14px 12px;
+  min-height: 44px;
+}

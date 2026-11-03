@@ -1,0 +1,205 @@
+.section {
+  background: var(--bg);
+}
+.heading {
+  text-align: center;
+  font-size: clamp(28px, 3vw, 46px);
+  line-height: 1.12;
+  margin: 0 0 14px;
+  letter-spacing: -0.035em;
+}
+.subheading {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 15.5px;
+  line-height: 1.6;
+  max-width: 500px;
+  margin: 0 auto 36px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  border: 1px solid var(--border-subtle);
+  border-radius: 22px;
+  padding: 24px;
+  background: var(--surface);
+  min-height: 400px;
+}
+.card-yellow {
+  border-color: #9b9e32;
+}
+.card-purple {
+  border-color: #952fb3;
+}
+.card-light-purple {
+  border-color: #9c79b3;
+}
+.cardBody {
+  flex: 1;
+}
+.courseTitle {
+  font-size: clamp(22px, 2vw, 30px);
+  line-height: 1.15;
+  margin: 0 0 14px;
+  letter-spacing: -0.03em;
+}
+.description {
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--text-muted);
+  margin: 0 0 18px;
+}
+.features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px;
+  display: grid;
+  gap: 10px;
+}
+.featureItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14.5px;
+  line-height: 1.5;
+}
+.checkIcon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  margin-top: 1px;
+  color: #8614a6;
+}
+.checkIcon svg {
+  display: block;
+  width: 100%;
+}
+.card-yellow .checkIcon {
+  color: #747816;
+}
+.meta {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+.metaItem {
+  font-size: 13.5px;
+  color: var(--text-muted);
+}
+.cardFooter {
+  margin-top: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.priceRow {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: baseline;
+}
+.price {
+  font-weight: 700;
+  font-size: 28px;
+}
+.priceUnit,
+.priceContact {
+  font-size: 13.5px;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin: 0;
+}
+.enrollBtn {
+  width: 100%;
+  min-height: 44px;
+  border: 0;
+  border-radius: 999px;
+  background: #e7ed24;
+  color: #30103b;
+  font: inherit;
+  font-size: 14.5px;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 10px 20px;
+  transition: transform 0.18s, filter 0.18s, box-shadow 0.18s;
+  box-shadow: 0 3px 12px rgba(231, 237, 36, 0.22);
+}
+.enrollBtn:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+  box-shadow: 0 5px 18px rgba(231, 237, 36, 0.35);
+}
+@media (max-width: 1000px) {
+  .grid {
+    gap: 16px;
+  }
+  .card {
+    padding: 24px;
+  }
+  .courseTitle {
+    font-size: 28px;
+  }
+}
+@media (max-width: 800px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .card {
+    min-height: 0;
+  }
+  .courseTitle {
+    font-size: 32px;
+  }
+  .description {
+    font-size: 16px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .enrollBtn {
+    transition: none;
+  }
+}
+.compact {
+  padding-block: 52px;
+}
+.compact .card {
+  min-height: 330px;
+  padding: 26px;
+}
+.compact .courseTitle {
+  font-size: 30px;
+  margin-bottom: 16px;
+}
+.compact .description {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+.compact .features {
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.compact .cardFooter {
+  margin-top: 20px;
+}
+.compact .enrollBtn {
+  min-height: 48px;
+}
+@media (max-width: 700px) {
+  .compact {
+    padding-block: 36px;
+  }
+  .compact .card {
+    min-height: 0;
+  }
+}

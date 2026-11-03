@@ -1,0 +1,360 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  transition: all 0.2s ease;
+}
+
+/* Transparent state (top of page) */
+.transparent {
+  background: transparent;
+  padding: 14px 0;
+}
+
+.transparent .inner {
+  width: 86%;
+  max-width: 1360px;
+  margin-inline: auto;
+}
+
+/* Scrolled state — capsule navbar */
+.scrolled {
+  background: transparent;
+  padding: 12px 0;
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  width: 86%;
+  max-width: 1360px;
+  margin-inline: auto;
+  transition: all 0.2s ease;
+}
+
+.innerScrolled {
+  background: var(--navbar-bg);
+  border-radius: 999px;
+  padding: 0 24px;
+  height: 62px;
+  width: 91%;
+  max-width: 1360px;
+  box-shadow: 0 4px 28px rgba(0, 0, 0, 0.22);
+}
+
+[data-theme="light"] .innerScrolled {
+  box-shadow: 0 4px 28px rgba(53, 17, 65, 0.1);
+}
+
+/* Nav links */
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex: 1;
+  justify-content: center;
+}
+
+.navLink {
+  color: var(--text-muted);
+  font-size: 14.5px;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 8px;
+  transition:
+    color 0.15s,
+    background 0.15s;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.navLink:hover {
+  color: var(--text-primary);
+  background: var(--surface-hover);
+}
+
+/* Right actions */
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.cabinetBtn {
+  background: var(--surface-elevated);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 8px 18px;
+  font-size: 13.5px;
+  font-weight: 600;
+  min-height: 38px;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  transition:
+    background 0.15s,
+    border-color 0.15s,
+    box-shadow 0.15s;
+  white-space: nowrap;
+}
+
+.cabinetBtn:hover {
+  background: var(--surface-hover);
+  border-color: var(--accent-purple-light);
+}
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  gap: 5px;
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: 0;
+}
+
+.hamburgerLine {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--text-primary);
+  border-radius: 2px;
+  transition:
+    transform 0.2s,
+    opacity 0.2s;
+}
+
+.hamburgerLine.open:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.hamburgerLine.open:nth-child(2) {
+  opacity: 0;
+}
+.hamburgerLine.open:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Mobile menu overlay */
+.mobileMenu {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  padding: 100px 24px 32px;
+  overflow-y: auto;
+}
+
+.mobileNav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.mobileNavLink {
+  color: var(--text-primary);
+  font-size: 22px;
+  font-weight: 600;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border-subtle);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.mobileNavLink:hover {
+  color: var(--accent-yellow);
+}
+
+.mobileCabinetBtn {
+  display: block;
+  margin-top: 24px;
+  background: var(--accent-yellow);
+  color: var(--accent-yellow-text);
+  font-size: 18px;
+  font-weight: 700;
+  text-align: center;
+  padding: 18px 32px;
+  border-radius: 999px;
+  text-decoration: none;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .nav {
+    display: none;
+  }
+  .cabinetBtn {
+    display: none;
+  }
+  .hamburger {
+    display: flex;
+  }
+}
+
+@media (max-width: 768px) {
+  .transparent,
+  .scrolled {
+    padding: 12px 0;
+  }
+  .inner {
+    width: calc(100% - 32px);
+  }
+  .innerScrolled {
+    padding: 0 20px;
+    height: 64px;
+    width: calc(100% - 24px);
+  }
+}
+.inner {
+  justify-content: space-between;
+}
+.phone {
+  font-size: 18px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.navLink {
+  font-size: clamp(14px, 1vw, 18px);
+  padding: 12px 10px;
+}
+.innerScrolled {
+  max-width: 1740px;
+}
+.inner:not(.innerScrolled) {
+  min-height: 60px;
+}
+.mobileMenu {
+  z-index: 1001;
+}
+.mobileMenu > button {
+  margin-bottom: 20px;
+  align-self: flex-end;
+}
+.actions {
+  gap: 12px;
+}
+@media (max-width: 1320px) {
+  .nav {
+    display: none;
+  }
+  .hamburger {
+    display: flex;
+  }
+  .phone {
+    font-size: 16px;
+  }
+  .cabinetBtn {
+    display: inline-flex;
+  }
+}
+@media (max-width: 768px) {
+  .transparent .inner {
+    width: calc(100% - 32px);
+  }
+  .phone {
+    display: none;
+  }
+  .cabinetBtn {
+    display: none;
+  }
+  .inner {
+    gap: 16px;
+  }
+  .innerScrolled {
+    padding: 0 16px;
+  }
+  .transparent {
+    padding: 16px 0;
+  }
+}
+.navLink[aria-current="page"],
+.mobileNavLink[aria-current="page"] {
+  color: var(--accent-yellow);
+  text-decoration: underline;
+  text-underline-offset: 7px;
+  text-decoration-thickness: 2px;
+}
+:global([data-theme="light"]) .navLink[aria-current="page"],
+:global([data-theme="light"]) .mobileNavLink[aria-current="page"] {
+  color: #751a90;
+}
+/* Insets stay clear of notches in portrait and landscape. */
+.header {
+  padding-top: max(16px, env(safe-area-inset-top));
+}
+.inner {
+  min-width: 0;
+}
+.mobileMenu {
+  padding: max(16px, env(safe-area-inset-top))
+    max(20px, env(safe-area-inset-right)) max(24px, env(safe-area-inset-bottom))
+    max(20px, env(safe-area-inset-left));
+  overscroll-behavior: contain;
+}
+.mobileMenu > button {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  flex-shrink: 0;
+  background: var(--surface-elevated);
+}
+.mobileNavLink {
+  min-height: 48px;
+}
+@media (max-width: 480px) {
+  .inner {
+    gap: 8px;
+  }
+  .actions {
+    gap: 4px;
+  }
+  .innerScrolled {
+    padding-inline: 12px;
+  }
+  .mobileNavLink {
+    font-size: 20px;
+    padding-block: 12px;
+  }
+}
+@media (max-height: 480px) {
+  .mobileMenu > button {
+    margin-bottom: 8px;
+  }
+  .mobileNavLink {
+    font-size: 18px;
+    padding-block: 10px;
+  }
+  .mobileCabinetBtn {
+    margin-top: 16px;
+    padding-block: 12px;
+  }
+}
+.transparent .inner {
+  max-width: min(
+    1640px,
+    calc(
+      100% - max(16px, env(safe-area-inset-left)) -
+        max(16px, env(safe-area-inset-right))
+    )
+  );
+}
+.innerScrolled {
+  max-width: min(
+    1740px,
+    calc(
+      100% - max(12px, env(safe-area-inset-left)) -
+        max(12px, env(safe-area-inset-right))
+    )
+  );
+}

@@ -1,0 +1,42 @@
+.toggle {
+  display: inline-grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  min-height: 36px;
+  padding: 0;
+  border: 1px solid var(--border-subtle);
+  border-radius: 50%;
+  color: var(--text-primary);
+  background: var(--surface);
+  transition:
+    background 0.15s,
+    border-color 0.15s;
+}
+.toggle svg {
+  display: block;
+  width: 16px;
+  height: 16px;
+}
+.toggle:hover {
+  background: var(--surface-hover);
+  border-color: var(--accent-purple);
+}
+.toggle:focus-visible {
+  outline: 2px solid var(--accent-purple);
+  outline-offset: 3px;
+}
+@media (pointer: coarse) {
+  .toggle {
+    width: 40px;
+    height: 40px;
+    min-height: 40px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .toggle {
+    transition: none;
+  }
+}

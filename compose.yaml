@@ -1,0 +1,71 @@
+services:
+  postgres:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-sherzod}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB:-sherzod}
+    volumes: ["postgres-data:/var/lib/postgresql/data"]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    restart: unless-stopped
+  migrate:
+    build: {context: ./backend}
+    env_file: .env
+    environment:
+      DATABASE_URL: postgresql+psycopg://${POSTGRES_USER:-sherzod}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB:-sherzod}
+    command: ["alembic", "upgrade", "head"]
+    depends_on: {postgres: {condition: service_healthy}}
+    restart: "no"
+  backend:
+    build: {context: ./backend}
+    env_file: .env
+    environment:
+      DATABASE_URL: postgresql+psycopg://${POSTGRES_USER:-sherzod}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB:-sherzod}
+      MEDIA_ROOT: /data/media
+    volumes: ["media-data:/data/media"]
+    ports: ["127.0.0.1:8000:8000"]
+    command: ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000", "--no-access-log", "--no-proxy-headers"]
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health/ready',timeout=3)"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    depends_on: {migrate: {condition: service_completed_successfully}}
+    restart: unless-stopped
+  worker:
+    build: {context: ./backend}
+    env_file: .env
+    environment:
+      DATABASE_URL: postgresql+psycopg://${POSTGRES_USER:-sherzod}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB:-sherzod}
+    command: ["python", "-m", "app.workers.telegram"]
+    healthcheck:
+      test: ["CMD", "python", "-c", "import os,time; assert time.time()-os.stat('/tmp/sherzod-worker.heartbeat').st_mtime < 120"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+    depends_on: {migrate: {condition: service_completed_successfully}}
+    restart: unless-stopped
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        NEXT_PUBLIC_APP_URL: ${PUBLIC_APP_URL:-http://localhost:3000}
+        API_INTERNAL_URL: http://backend:8000
+    environment:
+      API_INTERNAL_URL: http://backend:8000
+      NEXT_PUBLIC_APP_URL: ${PUBLIC_APP_URL:-http://localhost:3000}
+    ports: ["127.0.0.1:3000:3000"]
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:3000/login').then(r=>{if(!r.ok)process.exit(1)}).catch(()=>process.exit(1))"]
+      interval: 15s
+      timeout: 5s
+      retries: 10
+    depends_on: {backend: {condition: service_healthy}}
+    restart: unless-stopped
+volumes:
+  postgres-data:
+  media-data:

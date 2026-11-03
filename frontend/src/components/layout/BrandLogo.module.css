@@ -1,0 +1,114 @@
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.monogram {
+  flex-shrink: 0;
+}
+
+.monogramBg {
+  fill: var(--accent-purple);
+}
+
+[data-theme="light"] .monogramBg {
+  fill: var(--accent-purple);
+}
+
+.monogram svg {
+  display: block;
+}
+
+.sm .monogram svg {
+  width: 36px;
+  height: 36px;
+}
+.md .monogram svg {
+  width: 44px;
+  height: 44px;
+}
+.lg .monogram svg {
+  width: 52px;
+  height: 52px;
+}
+
+.wordmark {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.wordmarkTop,
+.wordmarkBottom {
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--text-primary);
+}
+
+.sm .wordmarkTop,
+.sm .wordmarkBottom {
+  font-size: 10px;
+}
+.md .wordmarkTop,
+.md .wordmarkBottom {
+  font-size: 12px;
+}
+.lg .wordmarkTop,
+.lg .wordmarkBottom {
+  font-size: 14px;
+}
+
+.wordmarkTop {
+  color: var(--text-primary);
+}
+.wordmarkBottom {
+  color: var(--text-muted);
+}
+.wordmarkBottom {
+  color: var(--text-primary);
+}
+.md .wordmarkTop,
+.md .wordmarkBottom {
+  font-size: 15px;
+}
+.lg .wordmarkTop,
+.lg .wordmarkBottom {
+  font-size: 18px;
+}
+.wordmark {
+  gap: 3px;
+}
+.monogramBg {
+  fill: var(--text-primary);
+}
+.monogram text {
+  fill: var(--bg);
+}
+.logo {
+  max-width: 100%;
+  min-width: 0;
+}
+.wordmark {
+  white-space: nowrap;
+}
+@media (max-width: 480px) {
+  .logo {
+    gap: 8px;
+  }
+  .md .wordmarkTop,
+  .md .wordmarkBottom {
+    font-size: clamp(12px, 3.6vw, 15px);
+    letter-spacing: 0.06em;
+  }
+  .lg .wordmarkTop,
+  .lg .wordmarkBottom {
+    font-size: clamp(15px, 4.2vw, 18px);
+  }
+  .lg .monogram svg {
+    width: 48px;
+    height: 48px;
+  }
+}

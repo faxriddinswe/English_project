@@ -1,0 +1,169 @@
+[
+  {
+    "filename": "IELTS_1.jpg",
+    "type": "ielts",
+    "student_name": "NAMUNA o‘quvchi 01",
+    "exam_date": "2025-01-01",
+    "listening": "5.5",
+    "reading": "5.5",
+    "writing": "5.5",
+    "speaking": "5.5",
+    "overall": "5.5",
+    "masks": [
+      [
+        0.788,
+        0.169,
+        0.921,
+        0.204
+      ],
+      [
+        0.176,
+        0.317,
+        0.468,
+        0.353
+      ],
+      [
+        0.196,
+        0.373,
+        0.396,
+        0.405
+      ],
+      [
+        0.693,
+        0.808,
+        0.916,
+        0.848
+      ]
+    ]
+  },
+  {
+    "filename": "IELTS_2.jpg",
+    "type": "ielts",
+    "student_name": "NAMUNA o‘quvchi 02",
+    "exam_date": "2025-01-01",
+    "listening": "5.0",
+    "reading": "4.5",
+    "writing": "6.0",
+    "speaking": "6.5",
+    "overall": "5.5",
+    "masks": [
+      [
+        0.824,
+        0.151,
+        0.958,
+        0.186
+      ],
+      [
+        0.193,
+        0.3,
+        0.485,
+        0.34
+      ],
+      [
+        0.207,
+        0.359,
+        0.414,
+        0.396
+      ],
+      [
+        0.711,
+        0.806,
+        0.957,
+        0.852
+      ]
+    ]
+  },
+  {
+    "filename": "IELTS_3.jpg",
+    "type": "ielts",
+    "student_name": "NAMUNA o‘quvchi 03",
+    "exam_date": "2025-01-01",
+    "listening": "5.5",
+    "reading": "5.0",
+    "writing": "6.5",
+    "speaking": "5.5",
+    "overall": "5.5",
+    "masks": [
+      [
+        0.765,
+        0.142,
+        0.9,
+        0.175
+      ],
+      [
+        0.177,
+        0.295,
+        0.456,
+        0.327
+      ],
+      [
+        0.2,
+        0.35,
+        0.393,
+        0.383
+      ],
+      [
+        0.716,
+        0.773,
+        0.927,
+        0.808
+      ]
+    ]
+  },
+  {
+    "filename": "SEFR.jpg",
+    "type": "cefr",
+    "student_name": "NAMUNA o‘quvchi 04",
+    "exam_date": "2025-01-01",
+    "level": "B2",
+    "cefr_score": "55",
+    "masks": [
+      [
+        0.53,
+        0.383,
+        0.91,
+        0.416
+      ],
+      [
+        0.535,
+        0.449,
+        0.76,
+        0.481
+      ],
+      [
+        0.41,
+        0.802,
+        0.545,
+        0.901
+      ]
+    ]
+  },
+  {
+    "filename": "Sertifikat_english.jpg",
+    "type": "cefr",
+    "student_name": "NAMUNA o‘quvchi 05",
+    "exam_date": "2025-01-01",
+    "level": "B2",
+    "cefr_score": "57",
+    "masks": [
+      [
+        0.53,
+        0.38,
+        0.8,
+        0.424
+      ],
+      [
+        0.53,
+        0.454,
+        0.705,
+        0.488
+      ],
+      [
+        0.408,
+        0.802,
+        0.535,
+        0.904
+      ]
+    ]
+  }
+]
