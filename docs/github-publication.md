@@ -1,5 +1,17 @@
 # GitHub nashri va fayllar auditi — 2026-11-03 (Asia/Tashkent)
 
+## Muvaffaqiyatli nashr — 2026-11-03 (Asia/Tashkent)
+
+Egasi «Endi ruxsat berdim davay» degach GitHub yozish so‘rovi bu safar muvaffaqiyatli o‘tdi. Dastlab remote branches `[]` qayta tekshirildi; `.gitignore` bootstrap commit **`8822944a4c13af69bd9e441b84a82c8cfa07b89a`** yaratildi. Avvalgi HTTP403 blok shu urinish uchun bartaraf bo‘ldi. Terminal DNS orqali yangi push bajarilmadi; nashr mavjud GitHub pluginining Git Data API’si orqali qilindi.
+
+**Loyiha GitHub `main` branchiga nashr qilindi:** [source commit fd52e65](https://github.com/faxriddinswe/Sherzod-English/commit/fd52e6521848de78ada0d83d1c191f49d3cd809a). 18 binary blob serverga yuborilib ularning SHA’lari tekshirildi, 245 text fayl bilan birga 263 faylli tree yaratildi. Remote tree **`85687ed6e098a36528c8679f3380fd25cd91c748`** aynan lokal auditdan o‘tgan tree’ga teng. Commit bootstrap’ning bolasi, `main` expected old SHA bilan **force=false** ko‘tarildi; mavjud remote tarix almashtirilmadi.
+
+Real GitHub ref/tree/commit endpointlari qayta o‘qildi: branch `fd52e65`, recursive tree truncated=false, **263/263 path + mode + blob hash** lokal manifestga teng. `.env`, `.local`, raw Screenshots, QA, baza/media/backup yo‘llari yo‘q; env example va synthetic test fixture bor. Nashrdan oldingi scanner: **263 fayl, 4,440,771 bytes, 0 findings**. Bu barcha possible secretlarni topish kafolati emas; oldingi kod ko‘rigi va ignore qarorlari bilan birga bajarilgan tekshiruvdir.
+
+Lokal `.local/github.git` ichidagi main/origin/main remote source commitga aynan moslandi. API author/date ma’lumotidan commit obyektlari asl +0500 timezone va message ending bilan qayta hosil qilinib SHA tengligi tekshirildi; bootstrap tree ham mavjud blobdan aynan tiklandi. Dastlab UTC +0000 bilan hash tenglashmaganida ref o‘zgartirilmadi; exact +0500 representation topilgach import qilindi. Oldingi lokal audit tarixi `audit-before-publication` branchida saqlandi; sayt fayllari o‘zgarmadi. GitHub API yangi tarix yaratgani uchun oldingi lokal audit commit SHA’lari remote source commitdan farq qiladi, shu sabab lokal ref/import moslash bajarildi.
+
+Ushbu yakuniy hujjatlar oldingi bloklangan holatni almashtiradi; quyidagi403/DNS yozuvlari o‘z vaqtidagi tarixiy dalildir. Ilova kodi/DB/akkaunt/parollar/runtime o‘zgarmadi, yangi Telegram xabari yoki unit/build/E2E bajarilmadi. GitHub nashri hosting deploy yoki production acceptance emas. Eski private evidence havolalari faqat lokal nusxada ochilishi haqidagi cheklov saqlanadi.
+
 ## Sabab va tuzatish yo‘li aniqlashtirildi — 2026-11-03, 14:55 (Asia/Tashkent)
 
 Egasi muammoning asosiy sababini va o‘zi tuzatadigan joyini so‘radi. Oldingi tekshiruvlarda ikkita mustaqil to‘siq bor: GitHub API joriy integratsiya bilan write’ni403 rad etdi; agent shell’dagi haqiqiy push esa domenni DNS orqali topolmay exit128 berdi. Ikkinchi xatoning aynan lokal kompyuter DNS sozlamasi yoki agent tarmoq izolyatsiyasi ekani ajratib isbotlanmagan; foydalanuvchining oddiy terminalida `getent hosts github.com` bilan solishtirish kerak. Bu safar yangi push yoki runtime tekshiruvi bajarilmadi.

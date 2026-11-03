@@ -1,5 +1,9 @@
 # Sherzod English — implementation status
 
+## GitHubga nashr muvaffaqiyatli — 2026-11-03 (Asia/Tashkent)
+
+Egasi huquqni bergach API yozish ishladi. Bo‘sh remote’ga bootstrap8822944, keyin [source fd52e65](https://github.com/faxriddinswe/Sherzod-English/commit/fd52e6521848de78ada0d83d1c191f49d3cd809a) main branchiga force=false/expected head bilan nashr qilindi. **263/263 fayl path/mode/blob SHA** remote ref/commit/recursive tree orqali tekshirilib lokal auditga teng; tree85687ed6, truncated=false. Scanner263fayl/4,440,771bytes/0finding. Private env/data/backup/media/raw reference/QA kiritilmagan. Lokal Git main/origin/main source commitga exact Git obyektlari orqali moslandi, oldingi audit branch saqlandi. **Avvalgi HTTP403 blok nashr uchun yechildi**; DNS orqali terminal push da’vosi yo‘q, GitHub API ishlatildi. Kod/DB/runtime o‘zgarmadi, tests/build/E2E qayta bajarilmadi. [Yakuniy hisobot va chegaralar](github-publication.md).
+
 ## Push bloklari bo‘yicha aniqlashtirish — 2026-11-03, 14:55 (Asia/Tashkent)
 
 Egaga ikki mustaqil oldingi xato tushuntirildi: GitHub integratsiya tokeni403/insufficient permission va agent shell DNS/exit128. Rasmiy GitHub hujjatlari bilan installed app repository access/Contents qayerda tekshirilishi va third-party app permissionini oddiy o‘rnatuvchi kengaytira olmasligi aniqlashtirildi; qayta ulash write’ni kafolatlamaydi. Foydalanuvchi oddiy terminalida DNSni solishtirish va mustaqil Git auth orqali push qilish yo‘li beriladi. Bu safar yangi push/test/runtime bajarilmadi, faqat docs; **nashr hali tugallanmagan**. [Sabab va tekshiruv yo‘li](github-publication.md).
