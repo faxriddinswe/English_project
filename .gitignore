@@ -1,0 +1,75 @@
+# Private configuration; commit templates only.
+.env
+.env.*
+!.env.example
+!.env.*.example
+/.aws/
+/.codex/
+/.agents/
+/.ssh/
+/.npmrc
+/.pypirc
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa*
+id_ed25519*
+credentials.json
+service-account*.json
+
+# Local services, user uploads, exports and database backups.
+/.local/
+/media/
+/backups/
+*.dump
+*.backup
+*.bundle
+*.sqlite
+*.sqlite3
+*.db
+*.sql.gz
+*.sql.zip
+*.log
+*.pid
+
+# Dependencies and generated build/test output.
+.venv/
+venv/
+node_modules/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+.coverage.*
+htmlcov/
+coverage/
+.next/
+.next-qa/
+out/
+dist/
+build/
+*.egg-info/
+*.tsbuildinfo
+test-results/
+playwright-report/
+blob-report/
+
+# Raw owner reference images/certificates and local QA evidence stay private.
+# Published website assets and the explicitly synthetic XLSX fixture are included.
+/Screenshots/
+/docs/qa/
+/docs/*.json
+!/docs/openapi.json
+/docs/*.xml
+
+# Editor/OS files.
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
